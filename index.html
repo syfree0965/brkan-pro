@@ -1,0 +1,74 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>شبكلي – شاهد ونزّل بسرعة</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f9f9f9;
+        }
+        input[type="text"] {
+            width: 70%;
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #e91e63;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        iframe {
+            margin-top: 20px;
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+<h1>مرحبًا بك في شبكلي</h1>
+<p>استخدم الموقع لـ:</p>
+
+<div style="margin-bottom: 20px;">
+    <h3>1. مشاهدة فيديو</h3>
+    <input type="text" id="videoUrl" placeholder="رابط الفيديو هنا">
+    <button onclick="loadVideo()">شغل الفيديو</button>
+    <iframe id="videoFrame" src=""></iframe>
+</div>
+
+<div style="margin-bottom: 20px;">
+    <h3>2. تنزيل ملف بسرعة</h3>
+    <input type="text" id="downloadUrl" placeholder="رابط الملف هنا">
+    <button onclick="startDownload()">ابدأ التنزيل</button>
+</div>
+
+<script>
+function loadVideo() {
+    const url = document.getElementById('videoUrl').value;
+    if (!url) return alert("يرجى إدخال رابط الفيديو");
+
+    // استبدل YOUR_SERVER_URL باسم خادمك البعيد
+    const proxyUrl = "https://yourserver.com/watch?url=" + encodeURIComponent(url);
+    document.getElementById('videoFrame').src = proxyUrl;
+}
+
+function startDownload() {
+    const url = document.getElementById('downloadUrl').value;
+    if (!url) return alert("يرجى إدخال رابط الملف");
+
+    // استبدل YOUR_SERVER_URL باسم خادمك البعيد
+    const proxyUrl = "https://yourserver.com/download?url=" + encodeURIComponent(url);
+    window.open(proxyUrl);
+}
+</script>
+
+</body>
+</html>
